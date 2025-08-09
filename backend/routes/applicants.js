@@ -1,3 +1,4 @@
+
 import express from 'express';
 import Applicant from '../models/Applicant.js';
 import auth from '../middleware/Auth.js';
@@ -8,14 +9,17 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     const { name, email, phone, role, availability, message } = req.body;
-    if (!name || !email) {
-      return res.status(400).json({ msg: 'Name and email are required' });
-    }
+
     const newApplicant = new Applicant({ name, email, phone, role, availability, message });
     const saved = await newApplicant.save();
+
     return res.status(201).json(saved);
   } catch (err) {
     console.error(err);
+    if (err.name === 'ValidationError') {
+      const messages = Object.values(err.errors).map(val => val.message);
+      return res.status(400).json({ msg: messages.join(', ') });
+    }
     return res.status(500).json({ msg: 'Server error' });
   }
 });
