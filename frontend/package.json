@@ -3,12 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://Parthav-Nair.github.io/Basti_Ki_Pathshala_Foundation/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
     "axios": "^1.11.0",
