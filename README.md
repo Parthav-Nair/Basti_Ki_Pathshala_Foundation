@@ -38,11 +38,11 @@ This is a full-stack application for the Basti Ki Pathshala Foundation.
      npm install
 
 3. Create a .env file in the backend and add:
-     MONGO_URI=your_mongodb_connection_string
-     JWT_SECRET=your_secret_key
-     ADMIN_EMAIL=admin@example.com
-     ADMIN_PASSWORD=your_secure_password
-     CLIENT_URL=http://localhost:5173
+     - MONGO_URI=your_mongodb_connection_string
+     - JWT_SECRET=your_secret_key
+     - ADMIN_EMAIL=admin@example.com
+     - ADMIN_PASSWORD=your_secure_password
+     - CLIENT_URL=http://localhost:5173
    
 4. Start the backend server:
     npm run dev
